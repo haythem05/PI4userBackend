@@ -21,7 +21,7 @@ private  final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(RegisterRequest request) {
         var user = User.builder()
-                .firstname(request.getFirstName())
+                .firstName(request.getFirstName())
                 .lastName(request.getLastName())
                 .email(request.getEmail())
                 .password(passwordEncoder.encode(request.getPassword()))

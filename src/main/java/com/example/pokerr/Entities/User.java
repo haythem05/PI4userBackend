@@ -27,7 +27,7 @@ public class User implements UserDetails {
 
     private String lastName;
 
-    private String firstname;
+    private String firstName;
 
     private String image;
 

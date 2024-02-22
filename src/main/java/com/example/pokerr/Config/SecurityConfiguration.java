@@ -27,12 +27,12 @@ public class SecurityConfiguration {
     private final JwtAuthenticationFilter jwtAuthFilter;
     private final UserDetailsService userDetailsService;
 
-    @Bean
+   @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         return  http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(
-                        req ->req.requestMatchers("/api/auth/**")
+                        req ->req.requestMatchers("/api/auth/**" )
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated()
