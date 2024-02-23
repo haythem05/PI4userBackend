@@ -25,15 +25,15 @@ public class User implements UserDetails {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long userId;
 
-    private String lastName;
+
 
     private String firstName;
-
-    private String image;
+    private String lastName;
 
     private String email;
 
     private String password;
+    private String image;
 
     @Enumerated(EnumType.STRING)
     private Gender gender;

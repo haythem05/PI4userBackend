@@ -5,6 +5,7 @@ import com.example.pokerr.Repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -17,6 +18,7 @@ public class UserServices {
 
     @Autowired
     private UserRepository userRepository;
+    private  final PasswordEncoder passwordEncoder;
 
     public List<User> ShowAllUsers()
     {
@@ -44,7 +46,8 @@ public class UserServices {
          user.setFirstName(userDetails.getFirstName());
          user.setLastName(userDetails.getLastName());
          user.setImage(userDetails.getImage());
-         user.setPassword(userDetails.getPassword());
+         //user.setPassword(userDetails.getPassword());
+         user.setPassword(passwordEncoder.encode(userDetails.getPassword()));
          user.setGender(userDetails.getGender());
 
            User  upuser = userRepository.save(user);
